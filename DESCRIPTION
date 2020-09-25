@@ -1,13 +1,13 @@
 Package: usefulR
 Type: Package
-Title: Provides Handy Functions
+Title: Provides Useful Functions
 Version: 0.1.0
 Author: Louis Hodge
 Maintainer: Louis Hodge <louis.hodge@education.gov.uk>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: A collection of disparate but 'useful' functions
 License: file LICENSE
 Encoding: UTF-8
+URL: https://l-hodge.github.io/usefulR/, https://github.com/l-hodge/usefulR
 LazyData: true
 RoxygenNote: 7.1.0
 Depends:
