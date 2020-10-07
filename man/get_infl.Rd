@@ -16,7 +16,7 @@ get_infl(infl_measure, base_year = 2020, add_yrs = 30, lng_run = NULL)
 \item{lng_run}{Long-run rate, unless specified defaults to be 2\% for CPI and GDP Deflator and 3\% for RPI}
 }
 \value{
-A `data.frame` containing an inflation series
+A \code{data.frame} containing an inflation series
 }
 \description{
 Fetch Outturn and OBR forecast of inflation measures

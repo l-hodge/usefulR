@@ -5,12 +5,12 @@
 #' @param add_yrs Number of additional years in series
 #' @param lng_run Long-run rate, unless specified defaults to be 2\% for CPI and GDP Deflator and 3\% for RPI
 #'
-#' @import dplyr
-#' @import tidyr
-#' @import readxl
+#' @importFrom dplyr mutate mutate_all select
+#' @importFrom tidyr drop_na fill pivot_longer
+#' @importFrom readxl read_excel
 #' @importFrom utils download.file tail
 #'
-#' @return A `data.frame` containing an inflation series
+#' @return A \code{data.frame} containing an inflation series
 #'
 #' @examples
 #' get_infl("CPI", base_year = 2020, add_yrs = 0, lng_run = 2)

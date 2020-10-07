@@ -1,0 +1,140 @@
+---
+title: "Distributional Weights"
+output:
+  bookdown::html_document2:
+    base_format: rmarkdown::html_vignette
+    toc: true
+    fig_caption: yes
+pkgdown:
+  as_is: true
+bibliography: refs.bib
+link-citations: yes
+vignette: >
+  %\VignetteIndexEntry{Distributional Weights}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include = FALSE}
+#library(usefulR)
+devtools::load_all()
+library(ggplot2)
+library(kableExtra)
+```
+
+The @hm_treasury_green_book_green_2018 encourages the use of 'welfare' or 'distributional' weights. This is based on the concept of the diminishing marginal utility of income, where the value of the an additional pound is worth more to those with lower incomes than those on higher incomes. This short vignette discusses the theory, recent estimation, suggested best practice and provides a short example.
+
+# The elasticity of marginal utility
+
+If we assume a standard [isoelastic utility function](https://en.wikipedia.org/wiki/Isoelastic_utility):
+
+$$
+\begin{equation}
+  u(y) = \begin{cases}
+         \frac{y^{1-\rho}-1}{1-\rho} & \rho \neq 1 \\
+         ln(y) & \rho = 1
+         \end{cases}
+  (\#eq:a)
+\end{equation}
+$$
+Then the marginal utility of income is:
+
+$$
+\begin{equation}
+  u'(y) = y^{-\rho}
+  (\#eq:b)
+\end{equation}
+$$
+
+And so the ratio between two marginal utilities is:
+
+$$
+\begin{equation}
+  \frac{u'(y_1)}{u'(y_2)} = \left(\frac{y_2}{y_1}\right)^\rho
+  (\#eq:c)
+\end{equation}
+$$
+
+Therefore if $\rho = 1$ then marginal utility would be simply inversely proportional to earnings ($y$) and an individual, for example earning £25,000 would gain twice as much utility from and extra pound than someone earning £50,000. However, most evidence suggests that $\rho$, the elasticity of marginal utility, is greater than 1. @layard_marginal_2008 estimate $\rho$ to be 1.30 (0.97-1.62) in the UK using the British Household Panel Survey (BHPS) and 1.26 (1.16-1.37) in a combined estimate using BHPS and 5 other international surveys. This implies marginal utility falls at an even faster rate with respect to income, as shown in figure \@ref(fig:plot). 
+
+```{r plot, fig.cap = "Marginal Utility", fig.width = 6, fig.align = "center",  echo = FALSE, warning = FALSE}
+
+eq1 = function(x){x^-1}
+eq2 = function(x){x^-1.3}
+ggplot(data.frame(x = c(1, 20)), aes(x = x)) + 
+  stat_function(fun=eq1, size = 2, aes(colour = "1")) +
+  stat_function(fun=eq2, size = 2, aes(colour = "2")) +
+  scale_color_discrete(labels = c(expression(rho~" = 1"), expression(rho~"= 1.3"))) +
+  xlab("Income") +
+  ylab("Marginal Utility") +
+  labs(colour = "") +
+  theme_minimal() +
+  theme(legend.text.align = 0)
+
+
+```
+
+The use of the @layard_marginal_2008 central estimate of $\rho = 1.3$ is suggested by @fujiwara_department_2010 and upheld by the @hm_treasury_green_book_green_2018. 
+
+# Welfare Weights
+
+The @hm_treasury_green_book_green_2018's suggested methodology for calculating welfare weights is to split the income distribution into **5 quintiles** and use the median of each quintile in calculations. The weights are derived as in equation \@ref(eq:c), by expressing the marginal utility of each quintile as a percentage of the marginal utility of the overall median.
+
+
+# Example
+
+We generate a hypothetical log-normal distribution of earnings.
+
+```{r}
+set.seed(1234)
+earns <- rlnorm(10000) * 30000
+summary(earns)
+```
+
+The 'welfare weights' can be estimated for a given $\rho$ using the `dist_weights` function:
+
+```{r, echo = TRUE}
+weights <- dist_weights(earns = earns, rho = 1.3, summary = TRUE, standardise = FALSE)
+```
+```{r, fig.align="center", echo = FALSE}
+knitr::kable(weights) %>% 
+  kable_styling(position = "center")
+```
+
+Because the distribution of earnings is approx. log-normal and so right skewed, the median is _less than_ the mean. As a result re-weighting using the welfare weights would increase the total utility (in this example the total utility gain is £`r round(sum(dist_weights(earns = earns, rho = 1.3, summary = FALSE, standardise = FALSE)$weight),0)` for a £1 increase in income for all 10,000 individuals)
+
+We can standardise the weights such that the mean weight is 1 and the total utility gain will equal the total income gain. In other words, the weighting does not effect the total utility.
+
+```{r, echo = TRUE}
+std_weights <- dist_weights(earns = earns, rho = 1.3, summary = TRUE, standardise = TRUE)
+```
+```{r, fig.align="center", echo = FALSE}
+knitr::kable(std_weights) %>% 
+  kable_styling(position = "center")
+```
+
+
+```{r, echo = FALSE}
+# df <- dist_weights(earns = rnorm(n = 10000, 30000, 8000), rho = 1, summary = FALSE, standardise = TRUE)
+# 
+# summary(df$weight)
+# sum(df$weight)
+# 
+# summary(df$std_weight)
+# sum(df$std_weight)
+```
+
+# Flags / Potential Issues
+
+- @layard_marginal_2008 use household income in their estimation, however, we use estimated individual level income
+- Welfare weights are typically applied to just the bottom quintile not the whole distribution
+
+# References
+
