@@ -62,7 +62,7 @@ $$
 \end{equation}
 $$
 
-Therefore if $\rho = 1$ then marginal utility would be simply inversely proportional to earnings ($y$) and an individual, for example earning £25,000 would gain twice as much utility from and extra pound than someone earning £50,000. However, most evidence suggests that $\rho$, the elasticity of marginal utility, is greater than 1. @layard_marginal_2008 estimate $\rho$ to be 1.30 (0.97-1.62) in the UK using the British Household Panel Survey (BHPS) and 1.26 (1.16-1.37) in a combined estimate using BHPS and 5 other international surveys. This implies marginal utility falls at an even faster rate with respect to income, as shown in figure \@ref(fig:plot). 
+Therefore if $\rho = 1$ then marginal utility would be simply inversely proportional to earnings ($y$) implying an individual, for example earning £25,000 would gain twice as much utility from an extra pound than someone earning £50,000. However, most evidence suggests that $\rho$, the elasticity of marginal utility, is greater than 1. @layard_marginal_2008 estimate $\rho$ to be 1.30 (0.97-1.62) in the UK using the British Household Panel Survey (BHPS) and 1.26 (1.16-1.37) in a combined estimate using BHPS and 5 other international surveys. This implies marginal utility falls at an even faster rate with respect to income, as shown in figure \@ref(fig:plot). 
 
 ```{r plot, fig.cap = "Marginal Utility", fig.width = 6, fig.align = "center",  echo = FALSE, warning = FALSE}
 
@@ -81,16 +81,16 @@ ggplot(data.frame(x = c(1, 20)), aes(x = x)) +
 
 ```
 
-The use of the @layard_marginal_2008 central estimate of $\rho = 1.3$ is suggested by @fujiwara_department_2010 and upheld by the @hm_treasury_green_book_green_2018. 
+The use of the @layard_marginal_2008 central estimate of $\rho = 1.3$ is suggested by @fujiwara_department_2010 and endorsed by the @hm_treasury_green_book_green_2018. 
 
 # Welfare Weights
 
-The @hm_treasury_green_book_green_2018's suggested methodology for calculating welfare weights is to split the income distribution into **5 quintiles** and use the median of each quintile in calculations. The weights are derived as in equation \@ref(eq:c), by expressing the marginal utility of each quintile as a percentage of the marginal utility of the overall median.
+The @hm_treasury_green_book_green_2018's suggested methodology for calculating welfare weights is to split the household income distribution into **5 quintiles** and use the median of each quintile in calculations. The weights are derived as in equation \@ref(eq:c), by expressing the marginal utility of each quintile as a percentage of the marginal utility of the overall median.
 
 
 # Example
 
-We generate a hypothetical log-normal distribution of earnings.
+We generate a hypothetical log-normal distribution of earnings:
 
 ```{r}
 set.seed(1234)
@@ -108,7 +108,7 @@ knitr::kable(weights) %>%
   kable_styling(position = "center")
 ```
 
-Because the distribution of earnings is approx. log-normal and so right skewed, the median is _less than_ the mean. As a result re-weighting using the welfare weights would increase the total utility (in this example the total utility gain is £`r round(sum(dist_weights(earns = earns, rho = 1.3, summary = FALSE, standardise = FALSE)$weight),0)` for a £1 increase in income for all 10,000 individuals)
+Because the distribution of earnings is approximately log-normal and so right skewed, the median is _less than_ the mean. As a result re-weighting using the welfare weights would increase the total utility (in this example the total utility gain is £`r format(round(sum(dist_weights(earns = earns, rho = 1.3, summary = FALSE, standardise = FALSE)$weight),0), scientific=FALSE)` for a £1 increase in income for all 10,000 individuals)
 
 We can standardise the weights such that the mean weight is 1 and the total utility gain will equal the total income gain. In other words, the weighting does not effect the total utility.
 
