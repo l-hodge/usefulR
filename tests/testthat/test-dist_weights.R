@@ -13,5 +13,5 @@ expect_equal(
 )
 
 expect_equal(
-  sum(dist_weights(earns = earns, rho = 1.3, summary = FALSE, standardise = FALSE))$std_weight, 10000
+  sum(dist_weights(earns = earns, rho = 1.3, summary = FALSE, standardise = TRUE)$std_weight), 10000
 )
