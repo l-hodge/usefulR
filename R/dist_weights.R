@@ -10,7 +10,7 @@
 #' @importFrom stats median
 #' @importFrom rlang .data
 #'
-#' @return Fill in
+#' @return A table of weights, either for whole input vector or summary of 5 quintiles.
 #'
 #' @export
 
