@@ -2,15 +2,17 @@
 title: "Distributional Weights"
 output:
   bookdown::html_document2:
-    base_format: rmarkdown::html_vignette
     toc: true
     fig_caption: yes
 pkgdown:
   as_is: true
+  set_null_theme: false
+params:
+    n: NA
 bibliography: refs.bib
 link-citations: yes
 vignette: >
-  %\VignetteIndexEntry{Distributional Weights}
+  %\VignetteIndexEntry{Companion}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -133,7 +135,7 @@ knitr::kable(std_weights) %>%
 
 # Flags / Potential Issues
 
-- @layard_marginal_2008 use household income in their estimation, however, we use estimated individual level income
+- @layard_marginal_2008 use household income in their estimation, however, we have estimated individual level income
 - Welfare weights are typically applied to just the bottom quintile not the whole distribution
 
 # References

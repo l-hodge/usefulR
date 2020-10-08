@@ -76,8 +76,7 @@
 
       
 
-      </header><script src="Distributional-Weights_files/header-attrs-2.3/header-attrs.js"></script><script src="Distributional-Weights_files/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="Distributional-Weights_files/kePrint-0.0.1/kePrint.js"></script><link href="Distributional-Weights_files/lightable-0.0.1/lightable.css" rel="stylesheet">
-<div class="row">
+      </header><script src="Distributional-Weights_files/header-attrs-2.1/header-attrs.js"></script><script src="Distributional-Weights_files/kePrint-0.0.1/kePrint.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Distributional Weights</h1>
@@ -118,33 +117,31 @@ Then the marginal utility of income is:</p>
   \tag{1.3}
 \end{equation}
 \]</span></p>
-<p>Therefore if <span class="math inline">\(\rho = 1\)</span> then marginal utility would be simply inversely proportional to earnings (<span class="math inline">\(y\)</span>) and an individual, for example earning £25,000 would gain twice as much utility from and extra pound than someone earning £50,000. However, most evidence suggests that <span class="math inline">\(\rho\)</span>, the elasticity of marginal utility, is greater than 1. <span class="citation">Layard, Nickell, and Mayraz (<a href="#ref-layard_marginal_2008" role="doc-biblioref">2008</a>)</span> estimate <span class="math inline">\(\rho\)</span> to be 1.30 (0.97-1.62) in the UK using the British Household Panel Survey (BHPS) and 1.26 (1.16-1.37) in a combined estimate using BHPS and 5 other international surveys. This implies marginal utility falls at an even faster rate with respect to income, as shown in figure <a href="#fig:plot">1.1</a>.</p>
+<p>Therefore if <span class="math inline">\(\rho = 1\)</span> then marginal utility would be simply inversely proportional to earnings (<span class="math inline">\(y\)</span>) implying an individual, for example earning £25,000 would gain twice as much utility from an extra pound than someone earning £50,000. However, most evidence suggests that <span class="math inline">\(\rho\)</span>, the elasticity of marginal utility, is greater than 1. <span class="citation">Layard, Nickell, and Mayraz (<a href="#ref-layard_marginal_2008" role="doc-biblioref">2008</a>)</span> estimate <span class="math inline">\(\rho\)</span> to be 1.30 (0.97-1.62) in the UK using the British Household Panel Survey (BHPS) and 1.26 (1.16-1.37) in a combined estimate using BHPS and 5 other international surveys. This implies marginal utility falls at an even faster rate with respect to income, as shown in figure <a href="#fig:plot">1.1</a>.</p>
 <div class="figure" style="text-align: center">
 <span id="fig:plot"></span>
-<img src="Distributional-Weights_files/figure-html/plot-1.png" alt="Marginal Utility"><p class="caption">
+<img src="Distributional-Weights_files/figure-html/plot-1.png" alt="Marginal Utility" width="576"><p class="caption">
 Figure 1.1: Marginal Utility
 </p>
 </div>
-<p>The use of the <span class="citation">Layard, Nickell, and Mayraz (<a href="#ref-layard_marginal_2008" role="doc-biblioref">2008</a>)</span> central estimate of <span class="math inline">\(\rho = 1.3\)</span> is suggested by <span class="citation">Fujiwara (<a href="#ref-fujiwara_department_2010" role="doc-biblioref">2010</a>)</span> and upheld by the <span class="citation">Green Book (<a href="#ref-hm_treasury_green_book_green_2018" role="doc-biblioref">2018</a>)</span>.</p>
+<p>The use of the <span class="citation">Layard, Nickell, and Mayraz (<a href="#ref-layard_marginal_2008" role="doc-biblioref">2008</a>)</span> central estimate of <span class="math inline">\(\rho = 1.3\)</span> is suggested by <span class="citation">Fujiwara (<a href="#ref-fujiwara_department_2010" role="doc-biblioref">2010</a>)</span> and endorsed by the <span class="citation">Green Book (<a href="#ref-hm_treasury_green_book_green_2018" role="doc-biblioref">2018</a>)</span>.</p>
 </div>
 <div id="welfare-weights" class="section level1" number="2">
 <h1 class="hasAnchor">
 <a href="#welfare-weights" class="anchor"></a><span class="header-section-number">2</span> Welfare Weights</h1>
-<p>The <span class="citation">Green Book (<a href="#ref-hm_treasury_green_book_green_2018" role="doc-biblioref">2018</a>)</span>’s suggested methodology for calculating welfare weights is to split the income distribution into <strong>5 quintiles</strong> and use the median of each quintile in calculations. The weights are derived as in equation <a href="#eq:c">(1.3)</a>, by expressing the marginal utility of each quintile as a percentage of the marginal utility of the overall median.</p>
+<p>The <span class="citation">Green Book (<a href="#ref-hm_treasury_green_book_green_2018" role="doc-biblioref">2018</a>)</span>’s suggested methodology for calculating welfare weights is to split the household income distribution into <strong>5 quintiles</strong> and use the median of each quintile in calculations. The weights are derived as in equation <a href="#eq:c">(1.3)</a>, by expressing the marginal utility of each quintile as a percentage of the marginal utility of the overall median.</p>
 </div>
 <div id="example" class="section level1" number="3">
 <h1 class="hasAnchor">
 <a href="#example" class="anchor"></a><span class="header-section-number">3</span> Example</h1>
-<p>We generate a hypothetical log-normal distribution of earnings.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span>
-<span class="va">earns</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Lognormal.html">rlnorm</a></span><span class="op">(</span><span class="fl">10000</span><span class="op">)</span> <span class="op">*</span> <span class="fl">30000</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">earns</span><span class="op">)</span>
+<p>We generate a hypothetical log-normal distribution of earnings:</p>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">1234</span>)
+<span class="no">earns</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Lognormal.html">rlnorm</a></span>(<span class="fl">10000</span>) * <span class="fl">30000</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">earns</span>)
 <span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
-<span class="co">#&gt;    1005   15493   30139   49187   58608 1118008</span></pre></div>
+<span class="co">#&gt;    1005   15493   30139   49187   58608 1118008</span></pre></body></html></div>
 <p>The ‘welfare weights’ can be estimated for a given <span class="math inline">\(\rho\)</span> using the <code>dist_weights</code> function:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="va">weights</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dist_weights.html">dist_weights</a></span><span class="op">(</span>earns <span class="op">=</span> <span class="va">earns</span>, rho <span class="op">=</span> <span class="fl">1.3</span>, summary <span class="op">=</span> <span class="cn">TRUE</span>, standardise <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">weights</span> <span class="kw">&lt;-</span> <span class="fu">dist_weights</span>(<span class="kw">earns</span> <span class="kw">=</span> <span class="no">earns</span>, <span class="kw">rho</span> <span class="kw">=</span> <span class="fl">1.3</span>, <span class="kw">summary</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">standardise</span> <span class="kw">=</span> <span class="fl">FALSE</span>)</pre></body></html></div>
 <table class="table table">
 <thead><tr>
 <th style="text-align:right;">
@@ -215,10 +212,9 @@ weight
 </tr>
 </tbody>
 </table>
-<p>Because the distribution of earnings is approx. log-normal and so right skewed, the median is <em>less than</em> the mean. As a result re-weighting using the welfare weights would increase the total utility (in this example the total utility gain is £1.7624^{4} for a £1 increase in income for all 10,000 individuals)</p>
+<p>Because the distribution of earnings is approximately log-normal and so right skewed, the median is <em>less than</em> the mean. As a result re-weighting using the welfare weights would increase the total utility (in this example the total utility gain is £17624 for a £1 increase in income for all 10,000 individuals)</p>
 <p>We can standardise the weights such that the mean weight is 1 and the total utility gain will equal the total income gain. In other words, the weighting does not effect the total utility.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="va">std_weights</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dist_weights.html">dist_weights</a></span><span class="op">(</span>earns <span class="op">=</span> <span class="va">earns</span>, rho <span class="op">=</span> <span class="fl">1.3</span>, summary <span class="op">=</span> <span class="cn">TRUE</span>, standardise <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">std_weights</span> <span class="kw">&lt;-</span> <span class="fu">dist_weights</span>(<span class="kw">earns</span> <span class="kw">=</span> <span class="no">earns</span>, <span class="kw">rho</span> <span class="kw">=</span> <span class="fl">1.3</span>, <span class="kw">summary</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">standardise</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></body></html></div>
 <table class="table table">
 <thead><tr>
 <th style="text-align:right;">
@@ -313,7 +309,7 @@ std_weight
 <a href="#flags-potential-issues" class="anchor"></a><span class="header-section-number">4</span> Flags / Potential Issues</h1>
 <ul>
 <li>
-<span class="citation">Layard, Nickell, and Mayraz (<a href="#ref-layard_marginal_2008" role="doc-biblioref">2008</a>)</span> use household income in their estimation, however, we use estimated individual level income</li>
+<span class="citation">Layard, Nickell, and Mayraz (<a href="#ref-layard_marginal_2008" role="doc-biblioref">2008</a>)</span> use household income in their estimation, however, we have estimated individual level income</li>
 <li>Welfare weights are typically applied to just the bottom quintile not the whole distribution</li>
 </ul>
 </div>
@@ -322,7 +318,7 @@ std_weight
 <a href="#references" class="anchor"></a>References</h1>
 <div id="refs" class="references hanging-indent">
 <div id="ref-fujiwara_department_2010">
-<p>Fujiwara, Daniel. 2010. “The Department for Work and Pensions Social Cost-Benefit Analysis Framework.” 86. Department for Work; Pensions.</p>
+<p>Fujiwara, D. 2010. “The Department for Work and Pensions Social Cost-Benefit Analysis Framework.” 86. Department for Work; Pensions.</p>
 </div>
 <div id="ref-hm_treasury_green_book_green_2018">
 <p>Green Book, HM Treasury. 2018.</p>
@@ -349,7 +345,7 @@ std_weight
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
