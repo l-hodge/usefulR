@@ -16,7 +16,7 @@ dist_weights(earns, rho = 1.3, summary = TRUE, standardise = FALSE)
 \item{standardise}{Standardise the weights}
 }
 \value{
-Fill in
+A table of weights, either for whole input vector or summary of 5 quintiles.
 }
 \description{
 Create distributional weights
