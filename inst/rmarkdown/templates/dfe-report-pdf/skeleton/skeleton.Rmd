@@ -1,0 +1,60 @@
+---
+title: "The title"
+month: Month
+date: Year
+author: "Author1, Author2 and Author3"
+affiliation: "Department for Education"
+email: "xxxx@education.gov.uk"
+dferef: "xxxx"
+isbn: "xxxx"
+output: 
+   usefulR::research_report:
+      latex_engine: xelatex
+---
+
+# Introduction
+
+`r stringi::stri_rand_lipsum(1)`
+
+`r stringi::stri_rand_lipsum(1)` we want a footnote[^about]
+
+[^about]: This is a footnote.
+
+
+## Sub-Heading
+
+`r stringi::stri_rand_lipsum(1)`
+
+### Sub-Sub-Heading
+
+`r stringi::stri_rand_lipsum(2)`
+
+# Literature
+
+`r stringi::stri_rand_lipsum(2)`
+
+`r stringi::stri_rand_lipsum(1)`
+
+```{r test-fig, fig.cap="Test caption", fig.align="center", echo=FALSE}
+knitr::include_graphics("dfe-logo.png")
+```
+
+`r stringi::stri_rand_lipsum(1)`
+
+Figure \ref{fig:test-fig} illustrates...
+
+`r stringi::stri_rand_lipsum(1)`
+
+This is shown in equation \ref{eq:firsteq}.
+
+`r stringi::stri_rand_lipsum(1)`
+
+   \begin{equation}
+     P(E_{i,g,a} = 1 | E_{i,g,a-1} = 1) = \Phi(\alpha_{0,g,a} + \alpha_{1,g,a}r_{i,g,a-1})
+     \label{eq:firsteq}
+   \end{equation}
+   
+`r stringi::stri_rand_lipsum(1)`
+
+\newpage{}
+# References

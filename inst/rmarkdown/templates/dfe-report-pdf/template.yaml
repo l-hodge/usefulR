@@ -1,0 +1,4 @@
+name: DfE Report Template
+description: >
+ Template for creating DfE research reports
+create_dir: true

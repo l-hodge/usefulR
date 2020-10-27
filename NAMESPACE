@@ -2,6 +2,8 @@
 
 export(dist_weights)
 export(get_infl)
+export(research_report)
+export(start_dfe_report)
 importFrom(dplyr,"%>%")
 importFrom(dplyr,across)
 importFrom(dplyr,everything)
