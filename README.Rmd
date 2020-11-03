@@ -22,18 +22,26 @@ A series of 'useful' functions that perform general tasks.
 | `dist_weights` | Creates 'Distributional' or 'Welfare' weights for a vector of earnings |
 
 
-### .Rmd Templates
+### .Rmd Template
+
+You can create a new report using the template by using `rmarkdown` in the console;
 
 ```{r, eval=FALSE}
 rmarkdown::draft("ReportName.Rmd", template = "dfe-report-pdf", package = "usefulR")
 ```
 
-You will need to have `tinytex` installed to render in the template. The following steps should help you get started:
+or in RStudio navigate to R Markdown... > From Template > DfE Report Template > OK
+
+You will need to have [`tinytex`](https://yihui.org/tinytex/) installed to render in the template. The following steps should help you get started:
 
 ```{r, eval=FALSE}
-install.packages("tinytex")
+# Install package
+install.packages("tinytex") 
+# Install TinyTeX
 tinytex::install_tinytex()
+# Set CTAN mirror - some of them don't work, this one does(!)
 tinytex::tlmgr_repo("http://mirror.aut.ac.nz/CTAN/")
+# This is required to get around the DfE proxy
 Sys.setenv(no_proxy="*")
 ```
 
