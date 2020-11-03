@@ -35,8 +35,10 @@ output:
 
 `r stringi::stri_rand_lipsum(1)`
 
-```{r test-fig, fig.cap="Test caption", fig.align="center", echo=FALSE}
+```{r test-fig, fig.cap="Test figure caption", fig.align="center", echo=FALSE}
+
 knitr::include_graphics("dfe-logo.png")
+
 ```
 
 `r stringi::stri_rand_lipsum(1)`
@@ -55,6 +57,16 @@ This is shown in equation \ref{eq:firsteq}.
    \end{equation}
    
 `r stringi::stri_rand_lipsum(1)`
+
+```{r test-table, echo=FALSE}
+
+knitr::kable(head(mtcars),
+             booktabs = T,
+             caption = "\\label{tab:test-table}Test table caption")
+
+```
+
+Table \ref{tab:test-table} give some rows of the mtcars dataset...
 
 \newpage{}
 # References
