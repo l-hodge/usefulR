@@ -2,7 +2,7 @@
 % Please edit documentation in R/start_dfe_report.R
 \name{research_report}
 \alias{research_report}
-\title{Test this function}
+\title{Template for a DfE Research Report}
 \usage{
 research_report(...)
 }
@@ -13,5 +13,5 @@ research_report(...)
 An R Markdown output format.
 }
 \description{
-Test this function
+Template for a DfE Research Report
 }
