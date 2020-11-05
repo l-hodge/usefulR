@@ -261,10 +261,28 @@ $endif$
 
 % Specify ToC/LoF/LoT
 \usepackage[titles]{tocloft}
+\usepackage[nottoc]{tocbibind} % include LoF/LoT as entries in ToC
 \renewcommand\cftsecfont{\mdseries} % remove bold default
 \renewcommand\cftsecpagefont{\mdseries} % remove bold default
 \renewcommand{\cftdot}{} % remove dots
-\setlength{\cftsecnumwidth}{0pt} % remove numbering
+
+\newlength{\mylen}
+
+  % Format the prefix in LoF
+  \renewcommand{\cftfigpresnum}{\figurename\enspace}
+  \renewcommand{\cftfigaftersnum}{:}
+  \settowidth{\mylen}{\cftfigpresnum\cftfigaftersnum}
+  \addtolength{\cftfignumwidth}{\mylen}
+
+  % Format the prefix in LoT
+  \renewcommand{\cfttabpresnum}{\tablename\enspace}
+  \renewcommand{\cfttabaftersnum}{:}
+  \settowidth{\mylen}{\cfttabpresnum\cfttabaftersnum}
+  \addtolength{\cfttabnumwidth}{\mylen}
+
+  % Remove indentation in LoF/LoT
+  \setlength{\cftfigindent}{0pt}
+  \setlength{\cfttabindent}{0pt}
 
 % Define section header font size/colour/face
 \usepackage{titlesec}
