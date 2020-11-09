@@ -51,7 +51,7 @@ library(dplyr)
 
 `r stringi::stri_rand_lipsum(1)`
 
-```{r test-fig, fig.cap="Test figure caption", fig.align="center", echo=FALSE}
+```{r test-fig, fig.cap="DfE Logo", fig.align="center", echo=FALSE}
 
 knitr::include_graphics("dfe-logo.png")
 
@@ -76,7 +76,7 @@ This is shown in equation \ref{eq:firsteq}.
 
 knitr::kable(head(mtcars),
              booktabs = T,
-             caption = "\\label{tab:test-table}Test table caption") %>% 
+             caption = "\\label{tab:test-table}mtcars data") %>% 
   kableExtra::kable_styling() %>% 
   kableExtra::footnote(general = c("1974 Motor Trend US magazine",
                                    "R Built-in Data Set"),
@@ -84,7 +84,7 @@ knitr::kable(head(mtcars),
 
 ```
 
-Table \ref{tab:test-table} give some rows of the mtcars dataset...
+Table \ref{tab:test-table} displays the top six rows of the mtcars dataset...
 
 \clearpage
 # References
