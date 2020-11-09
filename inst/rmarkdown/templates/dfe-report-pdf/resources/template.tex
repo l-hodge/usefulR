@@ -256,6 +256,9 @@ $endif$
 \floatsetup[figure]{capposition=top}
 \floatsetup[table]{capposition=top}
 
+\floatplacement{figure}{!htbp}
+\floatplacement{table}{!htbp}
+
 % Define the DfE blue colour for headings
 \usepackage{xcolor}
 \definecolor{dfe-blue}{RGB}{16,79,117}
@@ -331,6 +334,7 @@ $endif$
 \listoftables
 \newpage{}
 
+% Body
 $body$
 
 $if(natbib)$

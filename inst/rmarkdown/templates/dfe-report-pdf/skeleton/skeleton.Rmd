@@ -10,6 +10,7 @@ isbn: "xxxx"
 output: 
    usefulR::research_report:
       latex_engine: xelatex
+bibliography: biblio.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -29,7 +30,7 @@ library(dplyr)
 
 `r stringi::stri_rand_lipsum(1)`
 
-`r stringi::stri_rand_lipsum(1)` we want a footnote[^about]
+`r stringi::stri_rand_lipsum(1)` This statement needs a footnote[^about].
 
 [^about]: This is a footnote.
 
@@ -40,11 +41,13 @@ library(dplyr)
 
 ### Sub-Sub-Heading
 
-`r stringi::stri_rand_lipsum(2)`
+`r stringi::stri_rand_lipsum(1)`
 
 # Literature
 
-`r stringi::stri_rand_lipsum(2)`
+@smith_inquiry_1776 stated...
+
+`r stringi::stri_rand_lipsum(1)`
 
 `r stringi::stri_rand_lipsum(1)`
 
@@ -61,8 +64,6 @@ Figure \ref{fig:test-fig} illustrates...
 `r stringi::stri_rand_lipsum(1)`
 
 This is shown in equation \ref{eq:firsteq}.
-
-`r stringi::stri_rand_lipsum(1)`
 
    \begin{equation}
      P(E_{i,g,a} = 1 | E_{i,g,a-1} = 1) = \Phi(\alpha_{0,g,a} + \alpha_{1,g,a}r_{i,g,a-1})
@@ -85,5 +86,5 @@ knitr::kable(head(mtcars),
 
 Table \ref{tab:test-table} give some rows of the mtcars dataset...
 
-\newpage{}
+\clearpage
 # References
