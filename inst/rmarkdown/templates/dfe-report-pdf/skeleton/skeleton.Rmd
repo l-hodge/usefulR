@@ -12,6 +12,19 @@ output:
       latex_engine: xelatex
 ---
 
+```{r setup, include=FALSE}
+
+# Tables as LaTeX  
+options(knitr.table.format = function() {
+  if (knitr::is_latex_output())
+    "latex" else "html"
+})
+
+# Load libraries
+library(dplyr)
+
+```
+
 # Introduction
 
 `r stringi::stri_rand_lipsum(1)`
@@ -62,7 +75,11 @@ This is shown in equation \ref{eq:firsteq}.
 
 knitr::kable(head(mtcars),
              booktabs = T,
-             caption = "\\label{tab:test-table}Test table caption")
+             caption = "\\label{tab:test-table}Test table caption") %>% 
+  kableExtra::kable_styling() %>% 
+  kableExtra::footnote(general = c("1974 Motor Trend US magazine",
+                                   "R Built-in Data Set"),
+                       general_title = "Source: ")
 
 ```
 

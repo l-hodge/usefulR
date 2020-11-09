@@ -232,7 +232,6 @@ $endif$
 % Some preamble
 
 \usepackage{graphicx} % Graphics
-\usepackage{floatrow}
 \usepackage{longtable, booktabs, makecell} % Tables
 
 % Set font
@@ -252,8 +251,10 @@ $endif$
 \setstretch{1.2}
 
 % Specify caption positioning and font
-\usepackage[font=bf]{caption}
+\usepackage[font=bf, position=above]{caption}
+\usepackage{floatrow}
 \floatsetup[figure]{capposition=top}
+\floatsetup[table]{capposition=top}
 
 % Define the DfE blue colour for headings
 \usepackage{xcolor}
@@ -268,19 +269,19 @@ $endif$
 
 \newlength{\mylen}
 
-  % Format the prefix in LoF
+  %% Format the prefix in LoF
   \renewcommand{\cftfigpresnum}{\figurename\enspace}
   \renewcommand{\cftfigaftersnum}{:}
   \settowidth{\mylen}{\cftfigpresnum\cftfigaftersnum}
   \addtolength{\cftfignumwidth}{\mylen}
 
-  % Format the prefix in LoT
+  %% Format the prefix in LoT
   \renewcommand{\cfttabpresnum}{\tablename\enspace}
   \renewcommand{\cfttabaftersnum}{:}
   \settowidth{\mylen}{\cfttabpresnum\cfttabaftersnum}
   \addtolength{\cfttabnumwidth}{\mylen}
 
-  % Remove indentation in LoF/LoT
+  %% Remove indentation in LoF/LoT
   \setlength{\cftfigindent}{0pt}
   \setlength{\cfttabindent}{0pt}
 
