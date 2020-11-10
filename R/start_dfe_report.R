@@ -4,7 +4,7 @@
 #'   Arguments passed to \code{rmarkdown::\link{pdf_document}()}.
 #' @return An R Markdown output format.
 #' @export
-basic_report <- function(...) {
+basic_report <- function(number_sections = FALSE, ...) {
   pdf_document_format("dfe-report-pdf", ...)
 }
 
