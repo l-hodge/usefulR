@@ -1,19 +1,23 @@
-#' Template for a DfE Research Report
+#' Basic template for a DfE Research Report
 #' @param
 #'   ...,keep_tex,latex_engine,citation_package,highlight,fig_caption,md_extensions,template
 #'   Arguments passed to \code{rmarkdown::\link{pdf_document}()}.
 #' @return An R Markdown output format.
 #' @export
-research_report <- function(...) {
+basic_report <- function(...) {
   pdf_document_format("dfe-report-pdf", ...)
 }
 
-#' Initiate an rmarkdown DfE templated report
+#' Bookdown style template for a DfE Research Report
 #'
-#' @param title
+#' @importFrom bookdown pdf_book
 #'
+#' @return An R Markdown output format with bookdown features e.g. cross-referencing.
 #' @export
 
-start_dfe_report <- function(){
-
+research_report <- function(...) {
+  fmt <- bookdown::pdf_book(...,
+                            base_format = usefulR::basic_report)
+  fmt$inherits <- "usefulR::basic_report"
+  fmt
 }

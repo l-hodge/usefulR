@@ -2,16 +2,13 @@
 % Please edit documentation in R/start_dfe_report.R
 \name{research_report}
 \alias{research_report}
-\title{Template for a DfE Research Report}
+\title{Bookdown style template for a DfE Research Report}
 \usage{
 research_report(...)
 }
-\arguments{
-\item{..., keep_tex, latex_engine, citation_package, highlight, fig_caption, md_extensions, template}{Arguments passed to \code{rmarkdown::\link{pdf_document}()}.}
-}
 \value{
-An R Markdown output format.
+An R Markdown output format with bookdown features e.g. cross-referencing.
 }
 \description{
-Template for a DfE Research Report
+Bookdown style template for a DfE Research Report
 }

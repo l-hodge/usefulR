@@ -14,9 +14,7 @@ find_resource <- function(template, file = 'template.tex') {
 
 # Helper function to create a custom format derived from pdf_document that
 # includes a custom LaTeX template
-pdf_document_format <- function(
-  format, template = find_resource(format, 'template.tex'), ...
-) {
+pdf_document_format <- function(format, template = find_resource(format, 'template.tex'), ...) {
   fmt <- rmarkdown::pdf_document(..., template = template)
   fmt$inherits <- "pdf_document"
   fmt
