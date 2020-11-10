@@ -76,7 +76,11 @@
 
       
 
-      </header><script src="Distributional-Weights_files/header-attrs-2.1/header-attrs.js"></script><script src="Distributional-Weights_files/kePrint-0.0.1/kePrint.js"></script><div class="row">
+      </header><script src="Distributional-Weights_files/header-attrs-2.5/header-attrs.js"></script><script src="Distributional-Weights_files/jquery-1.11.3/jquery.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="Distributional-Weights_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="Distributional-Weights_files/bootstrap-3.3.5/js/bootstrap.min.js"></script><script src="Distributional-Weights_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script><script src="Distributional-Weights_files/bootstrap-3.3.5/shim/respond.min.js"></script><script src="Distributional-Weights_files/navigation-1.1/tabsets.js"></script><script src="Distributional-Weights_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="Distributional-Weights_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
+<script src="Distributional-Weights_files/anchor-sections-1.0/anchor-sections.js"></script><script src="Distributional-Weights_files/kePrint-0.0.1/kePrint.js"></script><link href="Distributional-Weights_files/lightable-0.0.1/lightable.css" rel="stylesheet">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Distributional Weights</h1>
@@ -135,13 +139,15 @@ Figure 1.1: Marginal Utility
 <h1 class="hasAnchor">
 <a href="#example" class="anchor"></a><span class="header-section-number">3</span> Example</h1>
 <p>We generate a hypothetical log-normal distribution of earnings:</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">1234</span>)
-<span class="no">earns</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Lognormal.html">rlnorm</a></span>(<span class="fl">10000</span>) * <span class="fl">30000</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">earns</span>)
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span>
+<span class="va">earns</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Lognormal.html">rlnorm</a></span><span class="op">(</span><span class="fl">10000</span><span class="op">)</span> <span class="op">*</span> <span class="fl">30000</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">earns</span><span class="op">)</span>
 <span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
-<span class="co">#&gt;    1005   15493   30139   49187   58608 1118008</span></pre></body></html></div>
+<span class="co">#&gt;    1005   15493   30139   49187   58608 1118008</span></code></pre></div>
 <p>The ‘welfare weights’ can be estimated for a given <span class="math inline">\(\rho\)</span> using the <code>dist_weights</code> function:</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">weights</span> <span class="kw">&lt;-</span> <span class="fu">dist_weights</span>(<span class="kw">earns</span> <span class="kw">=</span> <span class="no">earns</span>, <span class="kw">rho</span> <span class="kw">=</span> <span class="fl">1.3</span>, <span class="kw">summary</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">standardise</span> <span class="kw">=</span> <span class="fl">FALSE</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">weights</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dist_weights.html">dist_weights</a></span><span class="op">(</span>earns <span class="op">=</span> <span class="va">earns</span>, rho <span class="op">=</span> <span class="fl">1.3</span>, summary <span class="op">=</span> <span class="cn">TRUE</span>, standardise <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
 <table class="table table">
 <thead><tr>
 <th style="text-align:right;">
@@ -214,7 +220,8 @@ weight
 </table>
 <p>Because the distribution of earnings is approximately log-normal and so right skewed, the median is <em>less than</em> the mean. As a result re-weighting using the welfare weights would increase the total utility (in this example the total utility gain is £17624 for a £1 increase in income for all 10,000 individuals)</p>
 <p>We can standardise the weights such that the mean weight is 1 and the total utility gain will equal the total income gain. In other words, the weighting does not effect the total utility.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">std_weights</span> <span class="kw">&lt;-</span> <span class="fu">dist_weights</span>(<span class="kw">earns</span> <span class="kw">=</span> <span class="no">earns</span>, <span class="kw">rho</span> <span class="kw">=</span> <span class="fl">1.3</span>, <span class="kw">summary</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">standardise</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">std_weights</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dist_weights.html">dist_weights</a></span><span class="op">(</span>earns <span class="op">=</span> <span class="va">earns</span>, rho <span class="op">=</span> <span class="fl">1.3</span>, summary <span class="op">=</span> <span class="cn">TRUE</span>, standardise <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <table class="table table">
 <thead><tr>
 <th style="text-align:right;">
@@ -345,7 +352,7 @@ std_weight
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
