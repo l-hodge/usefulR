@@ -4,7 +4,7 @@
 \alias{basic_report}
 \title{Basic template for a DfE Research Report}
 \usage{
-basic_report(...)
+basic_report(number_sections = FALSE, ...)
 }
 \arguments{
 \item{..., keep_tex, latex_engine, citation_package, highlight, fig_caption, md_extensions, template}{Arguments passed to \code{rmarkdown::\link{pdf_document}()}.}
