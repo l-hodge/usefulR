@@ -7,7 +7,9 @@
 basic_report(number_sections = FALSE, ...)
 }
 \arguments{
-\item{..., keep_tex, latex_engine, citation_package, highlight, fig_caption, md_extensions, template}{Arguments passed to \code{rmarkdown::\link{pdf_document}()}.}
+\item{number_sections}{Number section headers (TRUE or FALSE)}
+
+\item{...}{Arguments passed to \code{rmarkdown::\link{pdf_document}()}.}
 }
 \value{
 An R Markdown output format.

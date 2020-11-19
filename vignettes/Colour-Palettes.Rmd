@@ -10,7 +10,7 @@ pkgdown:
 params:
     n: NA
 vignette: >
-  %\VignetteIndexEntry{Companion}
+  %\VignetteIndexEntry{colourpalette}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

@@ -6,6 +6,9 @@
 \usage{
 research_report(...)
 }
+\arguments{
+\item{...}{Arguments passed to \code{bookdown::pdf_book()}}
+}
 \value{
 An R Markdown output format with bookdown features e.g. cross-referencing.
 }

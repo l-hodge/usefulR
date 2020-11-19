@@ -17,21 +17,21 @@ A series of ‘useful’ functions that perform general tasks.
 
 ### Functions
 
-| Function       | Description                                                                      |
-| -------------- | -------------------------------------------------------------------------------- |
-| `get_infl`     | Fetches inflation time series from OBR incl outturn and projections              |
-| `dist_weights` | Creates ‘Distributional’ or ‘Welfare’ weights for a vector of earnings           |
-| `dfe_colours`  | Creates DfE colour palettes, typically monochrome sequential or spectral schemes |
+| Function         | Description                                                                      |
+| ---------------- | -------------------------------------------------------------------------------- |
+| `get_infl()`     | Fetches inflation time series from OBR incl outturn and projections              |
+| `dist_weights()` | Creates ‘Distributional’ or ‘Welfare’ weights for a vector of earnings           |
+| `dfe_colours()`  | Creates DfE colour palettes, typically monochrome sequential or spectral schemes |
 
 ### Rmarkdown output formats
 
 This package includes two Rmarkdown output formats to produce DfE
 Research Reports.
 
-| Function          | Description                                                                  |
-| ----------------- | ---------------------------------------------------------------------------- |
-| `basic_report`    | A basic DfE Research Report based on rmarkdown::pdf\_document()              |
-| `research_report` | A [bookdown](https://bookdown.org/yihui/bookdown/)-style DfE Research Report |
+| Function            | Description                                                                  |
+| ------------------- | ---------------------------------------------------------------------------- |
+| `basic_report()`    | A basic DfE Research Report based on rmarkdown::pdf\_document()              |
+| `research_report()` | A [bookdown](https://bookdown.org/yihui/bookdown/)-style DfE Research Report |
 
 #### Example yaml
 
