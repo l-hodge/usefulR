@@ -19,11 +19,11 @@ Imports:
   rlang, 
   digest,
   rmarkdown,
-  bookdown
+  bookdown,
+  knitr,
+  kableExtra
 Suggests: 
   testthat,
-  knitr,
   devtools,
-  ggplot2,
-  kableExtra
+  ggplot2
 VignetteBuilder: knitr
