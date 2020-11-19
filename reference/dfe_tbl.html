@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • usefulR</title>
+<title>DfE table styling — dfe_tbl • usefulR</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="DfE table styling — dfe_tbl" />
+<meta property="og:description" content="DfE table styling" />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -120,84 +121,57 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>DfE table styling</h1>
+    <small class="dont-index">Source: <a href='https://github.com/l-hodge/usefulR/blob/master/R/dfe_table.R'><code>R/dfe_table.R</code></a></small>
+    <div class="hidden name"><code>dfe_tbl.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>DfE table styling</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>dfe_tbl</span><span class='op'>(</span><span class='va'>df</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="basic_report.html">basic_report()</a></code> </p>
-        </td>
-        <td><p>Basic template for a DfE Research Report</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dfe_colours.html">dfe_colours()</a></code> </p>
-        </td>
-        <td><p>Use DfE's colour palette</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dfe_tbl.html">dfe_tbl()</a></code> </p>
-        </td>
-        <td><p>DfE table styling</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dist_weights.html">dist_weights()</a></code> </p>
-        </td>
-        <td><p>Create distributional weights</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_infl.html">get_infl()</a></code> </p>
-        </td>
-        <td><p>Fetch Outturn and OBR forecast of inflation measures</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="research_report.html">research_report()</a></code> </p>
-        </td>
-        <td><p>Bookdown style template for a DfE Research Report</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="use_azure_check.html">use_azure_check()</a></code> </p>
-        </td>
-        <td><p>Use azure pipeline check</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="use_yml_template.html">use_yml_template()</a></code> </p>
-        </td>
-        <td><p>Use a yml template</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>df</th>
+      <td><p>data.frame object to make into a LaTeX table</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A LaTeX table object.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>dfe_tbl</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: number of items to replace is not a multiple of replacement length</span></div><div class='output co'>#&gt; \begin{table}[H]
+#&gt; \centering
+#&gt; \resizebox{\linewidth}{!}{
+#&gt; \begin{tabular}{|l|l|l|l|l|}
+#&gt; \hline
+#&gt; \cellcolor[HTML]{C5D4DE}{\textbf{ }} &amp; \cellcolor[HTML]{C5D4DE}{\textbf{mpg}} &amp; \cellcolor[HTML]{C5D4DE}{\textbf{cyl}} &amp; \cellcolor[HTML]{C5D4DE}{\textbf{disp}} &amp; \cellcolor[HTML]{C5D4DE}{\textbf{hp}}\\
+#&gt; \hline
+#&gt; Mazda RX4 &amp; 21.0 &amp; 6 &amp; 160 &amp; 110\\
+#&gt; \hline
+#&gt; Mazda RX4 Wag &amp; 21.0 &amp; 6 &amp; 160 &amp; 110\\
+#&gt; \hline
+#&gt; Datsun 710 &amp; 22.8 &amp; 4 &amp; 108 &amp; 93\\
+#&gt; \hline
+#&gt; Hornet 4 Drive &amp; 21.4 &amp; 6 &amp; 258 &amp; 110\\
+#&gt; \hline
+#&gt; Hornet Sportabout &amp; 18.7 &amp; 8 &amp; 360 &amp; 175\\
+#&gt; \hline
+#&gt; Valiant &amp; 18.1 &amp; 6 &amp; 225 &amp; 105\\
+#&gt; \hline
+#&gt; \end{tabular}}
+#&gt; \end{table}</div><div class='input'>
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
