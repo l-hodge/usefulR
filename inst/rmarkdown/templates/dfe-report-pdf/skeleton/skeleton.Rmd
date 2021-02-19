@@ -11,6 +11,7 @@ output:
    usefulR::research_report:
       latex_engine: xelatex
 bibliography: biblio.bib
+csl: elsevier-harvard.csl
 ---
 
 ```{r setup, include=FALSE}
@@ -74,10 +75,15 @@ This is shown in equation \ref{eq:firsteq}.
 
 ```{r test-table, echo=FALSE}
 
+# usefulR::dfe_tbl(head(mtcars), cap_lab = "test-table", cap_text = "mtcars data") %>%
+#   kableExtra::footnote(general = c("1974 Motor Trend US magazine",
+#                                    "R Built-in Data Set"),
+#                        general_title = "Source: ")
+
 knitr::kable(head(mtcars),
              booktabs = T,
-             caption = "\\label{tab:test-table}mtcars data") %>% 
-  kableExtra::kable_styling() %>% 
+             caption = "\\label{tab:test-table}mtcars data") %>%
+  kableExtra::kable_styling() %>%
   kableExtra::footnote(general = c("1974 Motor Trend US magazine",
                                    "R Built-in Data Set"),
                        general_title = "Source: ")
