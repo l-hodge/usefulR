@@ -1,5 +1,5 @@
 ---
-title: "The title"
+title: Title
 month: Month
 date: Year
 author: "Author1, Author2 and Author3"
@@ -73,20 +73,13 @@ This is shown in equation \ref{eq:firsteq}.
    
 `r stringi::stri_rand_lipsum(1)`
 
-```{r test-table, echo=FALSE}
+```{r test-table, echo=FALSE, warning=FALSE}
 
-# usefulR::dfe_tbl(head(mtcars), cap_lab = "test-table", cap_text = "mtcars data") %>%
-#   kableExtra::footnote(general = c("1974 Motor Trend US magazine",
-#                                    "R Built-in Data Set"),
-#                        general_title = "Source: ")
-
-knitr::kable(head(mtcars),
-             booktabs = T,
-             caption = "\\label{tab:test-table}mtcars data") %>%
-  kableExtra::kable_styling() %>%
+usefulR::dfe_tbl(head(mtcars), label = "test-table", caption = "mtcars data") %>%
   kableExtra::footnote(general = c("1974 Motor Trend US magazine",
                                    "R Built-in Data Set"),
-                       general_title = "Source: ")
+                       general_title = "Source: ") %>%
+  kableExtra::kable_styling(latex_options = "scale_down")
 
 ```
 

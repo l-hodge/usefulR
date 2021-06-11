@@ -4,16 +4,30 @@
 \alias{dfe_tbl}
 \title{DfE table styling}
 \usage{
-dfe_tbl(df)
+dfe_tbl(
+  df,
+  label = knitr::opts_current$get("label"),
+  caption = " ",
+  row.names = TRUE,
+  ...
+)
 }
 \arguments{
-\item{df}{data.frame object to make into a LaTeX table}
+\item{df}{data.frame object to make into a DfE style table}
+
+\item{label}{The table reference label. By default obtained from knitr chunk}
+
+\item{caption}{caption for the table}
+
+\item{row.names}{include row names in table}
+
+\item{...}{Other arguments passed to knitr::kable}
 }
 \value{
-A LaTeX table object.
+A LaTeX table object in the DfE style. Can also create DfE style-like HTML tables, although support is limited.
 }
 \description{
-DfE table styling
+Wrapper for knitr::kable to produce tables in the DfE style.
 }
 \examples{
 dfe_tbl(head(mtcars)[1:4])

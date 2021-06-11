@@ -13,7 +13,7 @@ $if(CJKmainfont)$
 \PassOptionsToPackage{space}{xeCJK}
 $endif$
 % Define document class
-\documentclass[a4paper, 12pt]{$documentclass$}
+\documentclass[a4paper, table, 12pt]{$documentclass$}
 
 \usepackage{amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -91,7 +91,7 @@ $endif$
     \usepackage{parskip}
   }{% else
     \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+    \setlength{\parskip}{12pt plus 2pt minus 1pt}}
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
@@ -260,6 +260,12 @@ $endif$
  right=22.5mm
  }
 
+% Ragged text
+\raggedright
+\makeatletter
+    \renewcommand\@makefntext[1]{\raggedright\leftskip=1em\hskip-1em\@makefnmark#1}
+\makeatother
+
 % Set line spacing
 \usepackage{setspace}
 \setstretch{1.2}
@@ -315,7 +321,7 @@ $endif$
 \begin{titlepage}
   \includegraphics[width = 40mm]{dfe-logo.png}
 
-  \vspace{3cm}
+  \vspace{2.5cm}
 
   \fontsize{46}{58}\selectfont{\textcolor{dfe-blue}{\textbf{$title$}}}
 
@@ -323,13 +329,13 @@ $endif$
 
   \fontsize{24}{30}\selectfont{\textcolor{dfe-blue}{\textbf{Research report}}}
 
-  \vspace{0.5cm}
+  \vspace{0.3cm}
 
   \fontsize{24}{30}\selectfont{\textcolor{dfe-blue}{\textbf{$month$ $date$}}}
 
-  \vspace{3cm}
+  \vspace{2.5cm}
 
-  \fontsize{24}{30}\selectfont{\textcolor{dfe-blue}{\textbf{$author$ \\ $affiliation$}}}
+  \fontsize{24}{30}\selectfont{\textcolor{dfe-blue}{\textbf{$author$: $affiliation$}}}
 
   \vspace*{\fill}
 
@@ -378,7 +384,7 @@ $endif$
 © Department for Education $date$ \\
 \textbf{Reference: DFE-$dferef$} \\
 \textbf{ISBN: $isbn$} \\
-For any enquiries regarding this publication, contact us at: $email$ or www.education.gov.uk/contactus \\
-This document is available for download at www.gov.uk/government/publications
+For any enquiries regarding this publication, contact us at: \textcolor{blue}{\underline{$email$}} or \textcolor{blue}{\underline{www.education.gov.uk/contactus}} \\
+This document is available for download at \textcolor{blue}{\underline{www.gov.uk/government/publications}}
 
 \end{document}
